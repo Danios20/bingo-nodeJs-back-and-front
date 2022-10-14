@@ -1,0 +1,16 @@
+extends layout
+
+block content-winner
+  .card.text-center
+    .card-header
+      h5.card-title Winner
+    .card-body
+      table.table.table-bordered.border-success(style='width: 25rem;')
+        thead
+          tr
+            th(scope='col') Player
+            th#idMongo(scope='col')=userName
+        tbody
+    .card-footer.text-muted
+      button#idPlayAgain.btn.btn-outline-primary.float-left.btn-sm(type='button') Play Again
+  script(src="/javascripts/winner.js")

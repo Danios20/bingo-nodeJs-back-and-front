@@ -1,0 +1,19 @@
+extends layout
+
+block content-lobby
+  .card.text-center
+    .card-header
+      h5.card-title Player
+    .card-body
+      table.table.table-bordered.border-success(style='width: 25rem;')
+        thead
+          tr
+            th(scope='col') Id
+            th#idMongo(scope='col')=user
+        tbody
+    .card-footer.text-muted
+      button#playBtn.btn.btn-outline-primary.float-left.btn-sm(type='button') Play
+      a(href="../play")
+      label#labelTimeToStart Time to start: 05 : 00
+
+  script(src="/javascripts/lobby.js")

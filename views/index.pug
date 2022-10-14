@@ -1,0 +1,69 @@
+extends layout
+
+block content-login
+  .card.justify-content-center.align-items-center(style='width: 19rem; ')
+    img.card-img-top.border.border-1(src="/images/bingo.jpg" style="width:80%; border-radius:22%;")
+    .card-body.border.border-1
+      h5.card-title Log in
+      p.card-text
+        | Play, enjoy and win with ¡Super Bingo! It is very easy to win, just log in with your username and password.
+      form#loginFormId(method="POST", action="/login/authenticate")
+        .mb-3
+          label.form-label(for='userName') User name
+          input#userName.form-control(type='text', name ='userName')
+        .mb-3
+          label.form-label(for='pass') Password
+          input#password.form-control(type='password' name = 'password')
+        .mb-3
+          label.form-label(for='example') Don't have an account?
+          a.pe-auto(href='#', data-bs-toggle='modal', data-bs-target='#exampleModal')
+            | Create one.
+        button#loginBtn.btn.btn-primary(type='submit') Submit
+  // Modal 1
+  #exampleModal.modal.fade(tabindex='-1', aria-labelledby='exampleModalLabel', aria-hidden='true', data-bs-backdrop='static')
+    .modal-dialog.modal-dialog-scrollable
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Create Account
+          button.btn-close(type='button', data-bs-dismiss='modal', aria-label='Close')
+        .modal-body
+          form#signInForm.row.g-3(method="POST", action="/login")
+            .col-md-6
+              label.form-label(for='inputFirstName') First Name
+              input#inputFirstName.form-control(type='text', placeholder='Oscar', name='inputFirstName')
+            .col-md-6
+              label.form-label(for='inputLastName') Last Name
+              input#inputLastName.form-control(type='text', placeholder='Sanabria', name='inputLastName')
+            .col-12
+              label.form-label(for='inputUserName') User Name
+              input#inputUserName.form-control(type='text', placeholder='oscardev', name='inputUserName')
+            .col-12
+              label.form-label(for='inputPassword') Password
+              input#inputPassword.form-control(type='password', placeholder='*14Main32St#$45&', name='inputPassword')
+            .col-md-6
+              label.form-label(for='inputEmail') Email
+              input#inputEmail.form-control(type='email', placeholder='cafhol@example.com', name='inputEmail')
+            .col-md-6
+              label.form-label(for='inputDateOfBirth') Date of birth
+              input#inputDateOfBirth.form-control(type='date', name='inputDateOfBirth')
+            .col-12
+              .form-check
+                input#checkTerms.form-check-input(type='checkbox', name='checkTerms', value="true")
+                label.form-check-label(for='checkTerms ')
+                  | By choosing the Next option , you agree to the ¡Super Bingo! Agreement and Privacy and Cookie Statement.
+        .modal-footer
+          button.btn.btn-secondary(type='button', data-bs-dismiss='modal') Close
+          button#buttonSignIn.btn.btn-primary(type='button', data-bs-toggle='modal', data-bs-target='#exampleModal2', data-bs-dismiss='modal') Sign in
+  // Modal 2
+  #exampleModal2.modal.fade(tabindex='-1', aria-labelledby='exampleModalLabel2', aria-hidden='true', data-bs-backdrop='static')
+    .modal-dialog.modal-dialog-centered
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Transaction status
+          //- button.btn-close(href='#exampleModal', data-bs-dismiss='modal', aria-label='Close')
+        .modal-body
+          p#pTransactionStatus Aquí se muestra el estado del registro
+          span#idSpan
+        .modal-footer
+          a.btn.btn-secondary(href='#exampleModal', data-bs-toggle='modal', data-bs-dismiss='modal', role='button') Close
+  script(src="/javascripts/login.js")
