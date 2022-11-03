@@ -12,7 +12,7 @@ $ npm install
 ## Iniciar App
 Corremos nuestro servidor en Node Js.
 ```
-$ nodemon debug
+$ npm run debug
 ```
 Corremos nuestro servidor en Spring Boot.
 ![image](https://user-images.githubusercontent.com/65303390/195887117-9ccd055c-9286-4ce8-bbeb-953e3f239e62.png)
